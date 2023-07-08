@@ -13,6 +13,9 @@ public class AssignmentListDTO {
 		public String dueDate;
 		public String courseTitle;
 		public int courseId;
+		public AssignmentDTO() {
+			//no argument
+		};
 
 		public AssignmentDTO(int assignmentId, int courseId, String assignmentName, String dueDate,
 				String courseTitle) {
@@ -59,9 +62,7 @@ public class AssignmentListDTO {
 			} else if (!dueDate.equals(other.dueDate))
 				return false;
 			return true;
-		}
-		
-		
+		}	
 		
 	}
 
