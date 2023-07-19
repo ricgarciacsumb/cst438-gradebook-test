@@ -2,6 +2,7 @@ package com.cst438.controllers;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
@@ -16,6 +17,7 @@ import com.cst438.domain.CourseRepository;
 //import java.util.Arraylist;
 
 @RestController 
+@CrossOrigin(origins = {"http://localhost:3000","http://localhost:3001"})
 public class AssignmentController 
 {
 	@Autowired
@@ -28,6 +30,7 @@ public class AssignmentController
 		//checks name and due date
 		Assignment a = new Assignment();
 		a.setName(assignment.assignmentName);
+		a.setNeedsGrading(1);
 		a.setDueDate(java.sql.Date.valueOf(assignment.dueDate));
 		Course c = courseRepository.findById(assignment.courseId).orElse(null);
 		if (c == null)
